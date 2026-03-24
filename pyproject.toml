@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "vibeforge"
+version = "0.1.0"
+description = "Vibe code full apps in one prompt. Local-first. Powered by any LLM."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "Rohan", email = "rohan@vibeforge.dev"},
+]
+keywords = ["vibe-coding", "ai", "code-generation", "cli", "llm", "developer-tools"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Code Generators",
+]
+
+dependencies = [
+    "typer[all]>=0.12.0",
+    "rich>=13.0",
+    "litellm>=1.40.0",
+    "gitpython>=3.1",
+    "pyyaml>=6.0",
+]
+
+[project.scripts]
+vibeforge = "vibe.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["vibe"]
+
+[project.urls]
+Homepage = "https://github.com/Rohan4412s/vibeforge"
+Repository = "https://github.com/Rohan4412s/vibeforge"
+Issues = "https://github.com/Rohan4412s/vibeforge/issues"
