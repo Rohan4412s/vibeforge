@@ -71,16 +71,31 @@ ollama pull llama3.2
 vibeforge config set model ollama/llama3.2
 ```
 
-**OpenAI:**
+**OpenAI (GPT-5.4):**
 ```bash
 vibeforge config set api_key sk-your_openai_key
-vibeforge config set model gpt-4o
+vibeforge config set model gpt-5.4
+# Also: gpt-5.4-mini, gpt-5.4-nano
 ```
 
-**Anthropic:**
+**Anthropic (Claude 4.6):**
 ```bash
 vibeforge config set api_key sk-ant-your_key
-vibeforge config set model claude-sonnet-4-20250514
+vibeforge config set model claude-sonnet-4-6
+# Also: claude-opus-4-6-20260205
+```
+
+**Google Gemini (3.1):**
+```bash
+vibeforge config set api_key your_gemini_key
+vibeforge config set model gemini/gemini-3.1-pro
+# Also: gemini/gemini-3.1-flash-lite
+```
+
+**DeepSeek:**
+```bash
+vibeforge config set api_key your_deepseek_key
+vibeforge config set model deepseek/deepseek-chat
 ```
 
 ### 3. Vibe!
@@ -101,7 +116,7 @@ vibeforge new "portfolio website with dark mode and animations"
 vibeforge new "todo app with authentication" --template nextjs
 
 # Use a specific model
-vibeforge new "REST API for a blog" --model gpt-4o
+vibeforge new "REST API for a blog" --model gpt-5.4
 
 # Custom output directory
 vibeforge new "chat application" --output my-chat-app

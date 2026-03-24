@@ -3,11 +3,15 @@ VibeForge LLM — Universal LLM connector powered by LiteLLM.
 
 Supports: Ollama (local), Groq, OpenAI, Anthropic, Google Gemini, and 100+ more.
 Model format examples:
-    - ollama/llama3.2                (local, free)
-    - groq/llama-3.3-70b-versatile   (fast, free tier)
-    - gpt-4o                         (OpenAI)
-    - claude-sonnet-4-20250514                (Anthropic)
-    - gemini/gemini-2.5-pro            (Google)
+    - ollama/llama3.2                        (local, free)
+    - groq/llama-3.3-70b-versatile           (fast, free tier)
+    - gpt-5.4                                (OpenAI — latest)
+    - gpt-5.4-mini                            (OpenAI — fast & cheap)
+    - claude-opus-4-6-20260205               (Anthropic — most capable)
+    - claude-sonnet-4-6                       (Anthropic — balanced)
+    - gemini/gemini-3.1-pro                   (Google — latest)
+    - gemini/gemini-3.1-flash-lite            (Google — fast & cheap)
+    - deepseek/deepseek-chat                  (DeepSeek)
 """
 
 import os
@@ -35,9 +39,9 @@ def _detect_provider(model: str) -> str:
         return "groq"
     elif model_lower.startswith("gemini/") or model_lower.startswith("vertex_ai/"):
         return "gemini"
-    elif model_lower.startswith("claude") or model_lower.startswith("anthropic/"):
+    elif model_lower.startswith("claude") or model_lower.startswith("anthropic/") or "claude" in model_lower:
         return "anthropic"
-    elif model_lower.startswith("gpt") or model_lower.startswith("o1") or model_lower.startswith("o3") or model_lower.startswith("openai/"):
+    elif model_lower.startswith("gpt") or model_lower.startswith("o1") or model_lower.startswith("o3") or model_lower.startswith("o4") or model_lower.startswith("openai/"):
         return "openai"
     elif model_lower.startswith("deepseek/"):
         return "deepseek"

@@ -10,6 +10,13 @@ from typing import Optional
 CONFIG_DIR = Path.home() / ".vibeforge"
 CONFIG_FILE = CONFIG_DIR / "config.yaml"
 
+# Default model: Groq's free tier is the easiest way to get started.
+# Users can switch to any provider:
+#   gpt-5.4, gpt-5.4-mini           (OpenAI)
+#   claude-opus-4-6-20260205         (Anthropic)
+#   claude-sonnet-4-6                (Anthropic)
+#   gemini/gemini-3.1-pro            (Google)
+#   ollama/llama3.2                  (Local, free)
 DEFAULT_CONFIG = {
     "model": "groq/llama-3.3-70b-versatile",
     "api_key": None,
