@@ -72,7 +72,14 @@ def set_value(key: str, value: str):
 def get_api_key() -> Optional[str]:
     """Get API key from config or environment."""
     # Priority: env var > config file
-    env_key = os.environ.get("VIBEFORGE_API_KEY") or os.environ.get("OPENAI_API_KEY") or os.environ.get("GROQ_API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+    env_key = (
+        os.environ.get("VIBEFORGE_API_KEY")
+        or os.environ.get("OPENAI_API_KEY")
+        or os.environ.get("GROQ_API_KEY")
+        or os.environ.get("ANTHROPIC_API_KEY")
+        or os.environ.get("GEMINI_API_KEY")
+        or os.environ.get("DEEPSEEK_API_KEY")
+    )
     if env_key:
         return env_key
     return get_value("api_key")
